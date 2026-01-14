@@ -52,7 +52,7 @@ export default function Header() {
 
         {/* CENTER SEARCH BAR */}
         {showSearch && (
-          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-96 z-50 w-150">
+          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-96 z-50 w-160">
             <input
               type="text"
               placeholder="Search products..."
