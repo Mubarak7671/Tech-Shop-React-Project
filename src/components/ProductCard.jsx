@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div
-      className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-red-500 cursor-pointer"
+      className="bg-gray-900 p-5 rounded border border-gray-700 hover:border-red-500 cursor-pointer"
       onClick={() => navigate(`/product/${product.id}`)}
     >
       <img
