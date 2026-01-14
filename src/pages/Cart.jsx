@@ -37,7 +37,7 @@ export default function Cart() {
     <div className="flex flex-col md:flex-row max-w-6xl mx-auto p-10 gap-6">
       <div className="flex-1 bg-gray-900 p-4 rounded">
         {cart.map(item => (
-          <div key={item.id} className="flex justify-between items-center border-b border-gray-700 py-4">
+          <div key={item.id} className="flex justify-between items-center border-b border-gray-700 py-5">
             <div className="flex items-center gap-4">
               <img src={item.images[0]} className="w-20 h-20 object-contain" />
               <div>
