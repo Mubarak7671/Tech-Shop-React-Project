@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import { CartProvider } from "./context/CartContext";   // 🔥 important
+import { CartProvider } from "./context/CartContext";
 
 export default function App() {
   return (
