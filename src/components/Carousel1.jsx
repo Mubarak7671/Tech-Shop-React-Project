@@ -24,8 +24,6 @@ export default function Carousel() {
 
   return (
     <div className="w-screen bg-black py-12 overflow-hidden">
-
-      {/* SLIDER */}
       <div className="relative px-8">
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -40,7 +38,7 @@ export default function Carousel() {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="mx-auto h-40 object-contain"
+                  className="mx-auto h-50 object-contain"
                 />
 
                 <div className="flex justify-center gap-2 mt-3">
@@ -55,8 +53,6 @@ export default function Carousel() {
           ))}
         </div>
       </div>
-
-      {/* DOTS */}
       <div className="flex justify-center mt-6 gap-2">
         {[0,1,2,3,4].map((dot) => (
           <button
