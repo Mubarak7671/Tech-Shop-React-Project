@@ -41,7 +41,7 @@ export default function Carousel() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ${
+            className={`absolute inset-0 transition-opacity duration-800 ${
               index === current ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
@@ -57,7 +57,7 @@ export default function Carousel() {
                   <span className="text-red-500 font-bold text-xl">
                     {slide.price}
                   </span>
-                  <span className="line-through text-gray-400">
+                  <span className="line-through text-gray-500">
                     {slide.oldPrice}
                   </span>
                 </div>
