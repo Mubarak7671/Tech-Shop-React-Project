@@ -14,8 +14,6 @@ import {
 export default function Footer() {
     return (
         <>
-            {/* ================= ADVANTAGES SECTION ================= */}
-        
             <div className="bg-gray-900 py-16">
                 <h1 className="text-center text-3xl ">Our Advantages</h1>
                 <div className="max-w-7xl mx-auto flex flex-wrap justify-between gap-10 px-6 text-gray-300 mt-40">
@@ -26,7 +24,7 @@ export default function Footer() {
                             <p className="text-sm">Ships in 24 Hours</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-5">
                         <FaShieldAlt className="text-red-500 text-4xl" />
                         <div>
                             <p className="font-semibold text-white">Brand Warranty</p>
