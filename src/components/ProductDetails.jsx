@@ -22,10 +22,8 @@ export default function ProductDetails() {
   return (
     <div className="max-w-7xl mx-auto p-6 text-white">
 
-      {/* PRODUCT TOP */}
+      
       <div className="grid md:grid-cols-2 gap-10">
-
-        {/* IMAGES */}
         <div className="flex gap-4">
           <div className="flex flex-col gap-3">
             {product.images.map((img, i) => (
@@ -42,8 +40,6 @@ export default function ProductDetails() {
             <img src={mainImage} className="max-h-[450px] object-contain" />
           </div>
         </div>
-
-        {/* PRODUCT INFO */}
         <div className="space-y-4">
           <h1 className="text-2xl font-semibold">{product.title}</h1>
           <p className="text-gray-400 text-sm">{product.info}</p>
@@ -92,12 +88,7 @@ export default function ProductDetails() {
           </button>
         </div>
       </div>
-
-      {/* ================= TABS ================= */}
-
       <div className="mt-14">
-
-        {/* TAB BUTTONS */}
         <div className="flex justify-center gap-8 border-b border-gray-700 pb-3">
           {["Specifications","Overview","Reviews"].map(tab => (
             <button
@@ -113,11 +104,7 @@ export default function ProductDetails() {
             </button>
           ))}
         </div>
-
-        {/* TAB CONTENT */}
         <div className="mt-8">
-
-          {/* SPECIFICATIONS */}
           {activeTab === "Specifications" && (
             <div className="max-w-3xl mx-auto grid grid-cols-2 gap-y-4 text-gray-300 text-sm">
               <p>Brand</p><p className="text-right">{product.brand}</p>
@@ -126,8 +113,6 @@ export default function ProductDetails() {
               <p>Connectivity</p><p className="text-right">{product.connectivity}</p>
             </div>
           )}
-
-          {/* OVERVIEW */}
           {activeTab === "Overview" && (
             <div className="max-w-3xl mx-auto text-gray-400 text-sm leading-relaxed space-y-3">
               <p>
@@ -144,8 +129,6 @@ export default function ProductDetails() {
               <p>{product.info}</p>
             </div>
           )}
-
-          {/* REVIEWS */}
           {activeTab === "Reviews" && (
             <div className="max-w-3xl mx-auto space-y-6">
               {reviewsData.map(r => (
@@ -175,14 +158,11 @@ export default function ProductDetails() {
 
         </div>
       </div>
-
-      {/* ================= RELATED PRODUCTS ================= */}
-
       <h3 className="text-center mt-16 mb-6 text-gray-300 text-lg">
         Related Products
       </h3>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-6 p-5">
         {productsData.slice(0,4).map(item => (
           <div key={item.id} className="border border-gray-700 rounded p-4 hover:shadow-lg">
             <img src={item.images[0]} className="h-32 mx-auto object-contain"/>
@@ -198,8 +178,6 @@ export default function ProductDetails() {
           </div>
         ))}
       </div>
-
-      {/* DOTS */}
       <div className="flex justify-center gap-2 mt-6">
         {[0,1,2].map(dot => (
           <span
