@@ -15,7 +15,7 @@ export default function ContactModal({ onClose }) {
         <h2 className="text-2xl font-bold mb-1">
           {isLogin ? "Login" : "Signup"}
         </h2>
-        <p className="text-sm text-gray-400 mb-6">
+        <p className="text-sm text-gray-500 mb-6">
           {isLogin ? (
             <>
               New to Tech-Shop?{" "}
