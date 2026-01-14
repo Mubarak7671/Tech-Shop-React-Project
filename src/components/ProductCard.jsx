@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
 
       <p className="text-xs text-gray-400">{product.info}</p>
 
-      <div className="flex items-center gap-2 mt-2">
+      <div className="flex items-center gap-2 mt-3">
         <RatingStars count={product.rateCount} />
         <span className="text-xs text-gray-400">
           ({product.ratings})
