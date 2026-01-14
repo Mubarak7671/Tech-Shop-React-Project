@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
       if (exists) {
         return prev.map(item =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity - 1 }
             : item
         );
       }
@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
         ...prev,
         {
           ...product,
-          price: product.finalPrice,   // 🔥 important fix
+          price: product.finalPrice,   
           quantity: 1
         }
       ];
