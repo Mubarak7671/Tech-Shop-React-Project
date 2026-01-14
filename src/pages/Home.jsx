@@ -45,7 +45,7 @@ export default function Home() {
           return (
             <article
               key={product.id}
-              className="bg-black text-white border border-gray-700 hover:border-red-500 rounded overflow-hidden shadow-lg transition"
+              className="bg-black text-white border border-gray-800 hover:border-red-500 rounded overflow-hidden shadow-lg transition"
             >
               <div
                 className="w-full h-64 cursor-pointer bg-white"
