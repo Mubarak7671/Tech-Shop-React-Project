@@ -7,12 +7,12 @@ export default function Cart() {
   const navigate = useNavigate();
 
   const originalPrice = cart.reduce(
-    (acc, item) => acc + item.originalPrice * item.quantity,
+    (acc, item) => acc + (item.originalPrice || 0) * item.quantity,
     0
   );
 
   const totalPrice = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + (item.price || 0) * item.quantity,
     0
   );
 
@@ -34,29 +34,51 @@ export default function Cart() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row max-w-6xl mx-auto p-10 gap-6">
+    <div className="flex flex-col md:flex-row max-w-6xl mx-auto p-10 gap-6 text-white">
       <div className="flex-1 bg-gray-900 p-4 rounded">
-        {cart.map(item => (
-          <div key={item.id} className="flex justify-between items-center border-b border-gray-700 py-5">
+        {cart.map((item) => (
+          <div
+            key={item.id}
+            className="flex justify-between items-center border-b border-gray-700 py-5"
+          >
             <div className="flex items-center gap-4">
-              <img src={item.images[0]} className="w-20 h-20 object-contain" />
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-20 h-20 object-contain"
+              />
               <div>
                 <h3 className="font-semibold">{item.title}</h3>
                 <p className="text-red-500 font-bold">₹{item.price}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <button onClick={() => decreaseQty(item.id)} className="px-2 bg-gray-700 rounded">-</button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => decreaseQty(item.id)}
+                className="px-2 bg-gray-700 rounded"
+              >
+                -
+              </button>
               <span>{item.quantity}</span>
-              <button onClick={() => increaseQty(item.id)} className="px-2 bg-gray-700 rounded">+</button>
-              <button onClick={() => removeFromCart(item.id)} className="text-red-500 ml-2">🗑</button>
+              <button
+                onClick={() => increaseQty(item.id)}
+                className="px-2 bg-gray-700 rounded"
+              >
+                +
+              </button>
+              <button
+                onClick={() => removeFromCart(item.id)}
+                className="text-red-500 ml-2"
+              >
+                🗑
+              </button>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="w-full md:w-1/3 bg-gray-900 p-4 rounded flex flex-col gap-4 h-150">
+      <div className="w-full md:w-1/3 bg-gray-900 p-4 rounded flex flex-col gap-4">
         <h2 className="font-bold text-xl">Order Summary ({cart.length} items)</h2>
 
         <div className="flex justify-between">
@@ -85,4 +107,4 @@ export default function Cart() {
       </div>
     </div>
   );
-}
+} 
