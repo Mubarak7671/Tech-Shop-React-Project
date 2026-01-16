@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import ContactModal from "./ContactModal";
-
 const products = [
   "boAt Airdopes 131",
   "boAt Rockerz 203",
@@ -21,9 +20,8 @@ const products = [
   "Sony EX14AP Earphones",
   "Sony MDR-1000XM4",
   "Sony CH710N",
-  "Sony XB400 Headphones"
+  "Sony XB400 Headphones",
 ];
-
 export default function Header() {
   const navigate = useNavigate();
   const { cart } = useCart();
