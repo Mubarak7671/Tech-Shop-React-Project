@@ -14,6 +14,13 @@ export default function ProductDetails() {
   const [mainImage, setMainImage] = useState(product?.images[0]);
   const [activeTab, setActiveTab] = useState("Specifications");
   const [activeDot, setActiveDot] = useState(0);
+  const [showMsg, setShowMsg] = useState(false);
+
+  const handleBuyNow = (item) => {
+    addToCart(item);
+    setShowMsg(true);
+    setTimeout(() => setShowMsg(false), 2000);
+  };
 
   if (!product) {
     return <p className="text-center text-red-500 mt-10">Product not found</p>;
@@ -22,7 +29,13 @@ export default function ProductDetails() {
   return (
     <div className="max-w-7xl mx-auto p-6 text-white">
 
-      
+    
+      {showMsg && (
+        <div className="fixed top-5 right-5 bg-green-600 text-white px-5 py-3 rounded shadow-lg z-50">
+          Your order is confirmed ✅
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-10">
         <div className="flex gap-4">
           <div className="flex flex-col gap-3">
@@ -40,6 +53,7 @@ export default function ProductDetails() {
             <img src={mainImage} className="max-h-[450px] object-contain" />
           </div>
         </div>
+
         <div className="space-y-4">
           <h1 className="text-2xl font-semibold">{product.title}</h1>
           <p className="text-gray-400 text-sm">{product.info}</p>
@@ -80,14 +94,26 @@ export default function ProductDetails() {
 
           <hr className="border-gray-700"/>
 
-          <button
-            onClick={() => addToCart(product)}
-            className="bg-red-600 hover:bg-red-700 w-52 py-3 rounded text-white font-semibold"
-          >
-            Add to cart
-          </button>
+          
+          <div className="flex gap-4">
+            <button
+              onClick={() => addToCart(product)}
+              className="bg-red-600 hover:bg-red-700 w-52 py-3 rounded text-white font-semibold"
+            >
+              Add to cart
+            </button>
+
+            <button
+              onClick={() => handleBuyNow(product)}
+              className="bg-green-700 hover:bg-green-700 w-52 py-3 rounded text-white font-semibold"
+            >
+              Buy Now
+            </button>
+          </div>
+
         </div>
       </div>
+
       <div className="mt-14">
         <div className="flex justify-center gap-8 border-b border-gray-700 pb-3">
           {["Specifications","Overview","Reviews"].map(tab => (
@@ -104,6 +130,7 @@ export default function ProductDetails() {
             </button>
           ))}
         </div>
+
         <div className="mt-8">
           {activeTab === "Specifications" && (
             <div className="max-w-3xl mx-auto grid grid-cols-2 gap-y-4 text-gray-300 text-sm">
@@ -113,6 +140,7 @@ export default function ProductDetails() {
               <p>Connectivity</p><p className="text-right">{product.connectivity}</p>
             </div>
           )}
+
           {activeTab === "Overview" && (
             <div className="max-w-3xl mx-auto text-gray-400 text-sm leading-relaxed space-y-3">
               <p>
@@ -129,6 +157,7 @@ export default function ProductDetails() {
               <p>{product.info}</p>
             </div>
           )}
+
           {activeTab === "Reviews" && (
             <div className="max-w-3xl mx-auto space-y-6">
               {reviewsData.map(r => (
@@ -158,6 +187,7 @@ export default function ProductDetails() {
 
         </div>
       </div>
+
       <h3 className="text-center mt-16 mb-6 text-gray-300 text-lg">
         Related Products
       </h3>
@@ -170,14 +200,15 @@ export default function ProductDetails() {
             <p className="text-red-500 font-semibold">₹{item.finalPrice}</p>
 
             <button
-              onClick={() => addToCart(item)}
+              onClick={() => handleBuyNow(item)}
               className="bg-red-600 w-full mt-2 py-1 rounded text-sm"
             >
-              Add to cart
+              Buy Now
             </button>
           </div>
         ))}
       </div>
+
       <div className="flex justify-center gap-2 mt-6">
         {[0,1,2].map(dot => (
           <span
